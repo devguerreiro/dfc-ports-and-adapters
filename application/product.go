@@ -31,14 +31,18 @@ type Product struct {
 func (p *Product) Enable() error {
 	if p.Price > 0 {
 		p.Status = ENABLED
-        return nil
+		return nil
 	}
 	return errors.New("price cannot be zero")
 }
 
-// func (p *Product) Disable() error {
-
-// }
+func (p *Product) Disable() error {
+	if p.Price == 0 {
+		p.Status = DISABLED
+		return nil
+	}
+	return errors.New("price must be zero")
+}
 
 func (p *Product) GetID() string {
 	return p.ID
