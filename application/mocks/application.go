@@ -315,34 +315,6 @@ func (m *MockProductPersistenceInterface) EXPECT() *MockProductPersistenceInterf
 	return m.recorder
 }
 
-// Disable mocks base method.
-func (m *MockProductPersistenceInterface) Disable() error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Disable")
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// Disable indicates an expected call of Disable.
-func (mr *MockProductPersistenceInterfaceMockRecorder) Disable() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Disable", reflect.TypeOf((*MockProductPersistenceInterface)(nil).Disable))
-}
-
-// Enable mocks base method.
-func (m *MockProductPersistenceInterface) Enable() error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Enable")
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// Enable indicates an expected call of Enable.
-func (mr *MockProductPersistenceInterfaceMockRecorder) Enable() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Enable", reflect.TypeOf((*MockProductPersistenceInterface)(nil).Enable))
-}
-
 // Get mocks base method.
 func (m *MockProductPersistenceInterface) Get(id string) (application.ProductInterface, error) {
 	m.ctrl.T.Helper()
@@ -358,73 +330,17 @@ func (mr *MockProductPersistenceInterfaceMockRecorder) Get(id interface{}) *gomo
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockProductPersistenceInterface)(nil).Get), id)
 }
 
-// GetID mocks base method.
-func (m *MockProductPersistenceInterface) GetID() string {
+// Save mocks base method.
+func (m *MockProductPersistenceInterface) Save(product application.ProductInterface) (application.ProductInterface, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetID")
-	ret0, _ := ret[0].(string)
-	return ret0
-}
-
-// GetID indicates an expected call of GetID.
-func (mr *MockProductPersistenceInterfaceMockRecorder) GetID() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetID", reflect.TypeOf((*MockProductPersistenceInterface)(nil).GetID))
-}
-
-// GetName mocks base method.
-func (m *MockProductPersistenceInterface) GetName() string {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetName")
-	ret0, _ := ret[0].(string)
-	return ret0
-}
-
-// GetName indicates an expected call of GetName.
-func (mr *MockProductPersistenceInterfaceMockRecorder) GetName() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetName", reflect.TypeOf((*MockProductPersistenceInterface)(nil).GetName))
-}
-
-// GetPrice mocks base method.
-func (m *MockProductPersistenceInterface) GetPrice() float64 {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetPrice")
-	ret0, _ := ret[0].(float64)
-	return ret0
-}
-
-// GetPrice indicates an expected call of GetPrice.
-func (mr *MockProductPersistenceInterfaceMockRecorder) GetPrice() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetPrice", reflect.TypeOf((*MockProductPersistenceInterface)(nil).GetPrice))
-}
-
-// GetStatus mocks base method.
-func (m *MockProductPersistenceInterface) GetStatus() string {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetStatus")
-	ret0, _ := ret[0].(string)
-	return ret0
-}
-
-// GetStatus indicates an expected call of GetStatus.
-func (mr *MockProductPersistenceInterfaceMockRecorder) GetStatus() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetStatus", reflect.TypeOf((*MockProductPersistenceInterface)(nil).GetStatus))
-}
-
-// IsValid mocks base method.
-func (m *MockProductPersistenceInterface) IsValid() (bool, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "IsValid")
-	ret0, _ := ret[0].(bool)
+	ret := m.ctrl.Call(m, "Save", product)
+	ret0, _ := ret[0].(application.ProductInterface)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
-// IsValid indicates an expected call of IsValid.
-func (mr *MockProductPersistenceInterfaceMockRecorder) IsValid() *gomock.Call {
+// Save indicates an expected call of Save.
+func (mr *MockProductPersistenceInterfaceMockRecorder) Save(product interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IsValid", reflect.TypeOf((*MockProductPersistenceInterface)(nil).IsValid))
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Save", reflect.TypeOf((*MockProductPersistenceInterface)(nil).Save), product)
 }

@@ -38,7 +38,7 @@ type ProductWriter interface {
 
 type ProductPersistenceInterface interface {
 	ProductReader
-	ProductInterface
+	ProductWriter
 }
 
 const (
