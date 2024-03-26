@@ -2,6 +2,7 @@ package db_test
 
 import (
 	"appproduct/adapters/db"
+	"appproduct/application"
 	"database/sql"
 	"testing"
 
@@ -37,7 +38,7 @@ func createProduct(db *sql.DB) {
 		"abc",
 		"Product ABC",
         "100",
-        "DISABLED"
+        "disabled"
 	)`
 
 	stmt, err := db.Prepare(insert)
@@ -58,5 +59,31 @@ func TestProductDb_Get(t *testing.T) {
 	require.Nil(t, err)
 	require.Equal(t, "Product ABC", product.GetName())
 	require.Equal(t, 100.0, product.GetPrice())
-	require.Equal(t, "DISABLED", product.GetStatus())
+	require.Equal(t, application.DISABLED, product.GetStatus())
+}
+
+func TestProductDb_Save(t *testing.T) {
+	setUp()
+	defer Db.Close()
+
+	productDb := db.NewProductDb(Db)
+	product := application.NewProduct()
+	product.Name = "Product ABC"
+	product.Price = 100.0
+
+	productResult, err := productDb.Save(product)
+
+	require.Nil(t, err)
+	require.Equal(t, "Product ABC", productResult.GetName())
+	require.Equal(t, 100.0, productResult.GetPrice())
+	require.Equal(t, application.DISABLED, productResult.GetStatus())
+
+	product.Status = application.ENABLED
+
+	productResult, err = productDb.Save(product)
+	
+	require.Nil(t, err)
+	require.Equal(t, "Product ABC", productResult.GetName())
+	require.Equal(t, 100.0, productResult.GetPrice())
+	require.Equal(t, application.ENABLED, productResult.GetStatus())
 }
